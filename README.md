@@ -1,6 +1,7 @@
 # README
 
 Code for 'A Conditional Denoising Diffusion Probabilistic Model for Radio Interferometic Image Reconstruction'.
+Preprint: https://arxiv.org/abs/2305.09121 .
 
 ### Training
 
