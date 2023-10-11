@@ -3,6 +3,8 @@
 Code for 'A Conditional Denoising Diffusion Probabilistic Model for Radio Interferometic Image Reconstruction'.
 Preprint: https://arxiv.org/abs/2305.09121 .
 
+
+
 ### Training
 
 ```
@@ -30,6 +32,10 @@ python -m torch.distributed.launch --nproc_per_node=6 test.py $SCRIPT_FLAGS $DAT
 ### Dataset
 
 We use public dataset which is presented by Wu et al.[1]. Please find the dataset in https://github.com/wubenjamin/neural-interferometry .
+
+Please download the data and modify the related path in the code.
+
+
 
 ### Reference
 
