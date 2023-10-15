@@ -4,19 +4,17 @@ Code for 'A Conditional Denoising Diffusion Probabilistic Model for Radio Interf
 Preprint: https://arxiv.org/abs/2305.09121 .
 
 
+### Dataset
 
-### Training
+We use public dataset which is presented by Wu et al.[1]. Please find the dataset in https://github.com/wubenjamin/neural-interferometry .
 
-```
-SCRIPT_FLAGS="--method_type vicddpm"
-DATASET_FLAGS="--dataset galaxy --batch_size 24 --num_workers 6"
-TRAIN_FLAGS="--microbatch 32 --save_interval 5000 --max_step 25000 \
---model_save_dir ..."
+Please download the data and modify the related path in the code.
 
-python -m torch.distributed.launch --nproc_per_node=6 train.py $SCRIPT_FLAGS $DATASET_FLAGS $TRAIN_FLAGS
-```
 
 ### Testing
+
+Please download the trained model from https://drive.google.com/drive/folders/12QelF9f_FJaR02Le81eSTfhC7kE4AgpR?usp=sharing
+Then modify the "model_save_dir" and run testing.
 
 ```
 SCRIPT_FLAGS="--method_type vicddpm"
@@ -29,11 +27,20 @@ TEST_FLAGS="--model_save_dir ... --resume_checkpoint model025000.pt \
 python -m torch.distributed.launch --nproc_per_node=6 test.py $SCRIPT_FLAGS $DATASET_FLAGS $TEST_FLAGS
 ```
 
-### Dataset
 
-We use public dataset which is presented by Wu et al.[1]. Please find the dataset in https://github.com/wubenjamin/neural-interferometry .
+### Training
 
-Please download the data and modify the related path in the code.
+```
+SCRIPT_FLAGS="--method_type vicddpm"
+DATASET_FLAGS="--dataset galaxy --batch_size 24 --num_workers 6"
+TRAIN_FLAGS="--microbatch 32 --save_interval 5000 --max_step 25000 \
+--model_save_dir ..."
+
+python -m torch.distributed.launch --nproc_per_node=6 train.py $SCRIPT_FLAGS $DATASET_FLAGS $TRAIN_FLAGS
+```
+
+
+
 
 
 
